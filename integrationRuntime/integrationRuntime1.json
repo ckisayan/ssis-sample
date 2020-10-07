@@ -1,0 +1,37 @@
+{
+	"name": "integrationRuntime1",
+	"properties": {
+		"type": "Managed",
+		"description": "my first integration env",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "West US",
+				"nodeSize": "Standard_D1_v2",
+				"numberOfNodes": 2,
+				"maxParallelExecutionsPerNode": 2
+			},
+			"ssisProperties": {
+				"catalogInfo": {
+					"catalogServerEndpoint": "cki1.database.windows.net",
+					"catalogAdminUserName": "cisayan",
+					"catalogAdminPassword": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"catalogPricingTier": "Basic"
+				},
+				"edition": "Standard",
+				"licenseType": "BasePrice",
+				"packageStores": [
+					{
+						"name": "myAzureFilesPackageStore",
+						"packageStoreLinkedService": {
+							"referenceName": "linkedService1",
+							"type": "LinkedServiceReference"
+						}
+					}
+				]
+			}
+		}
+	}
+}
